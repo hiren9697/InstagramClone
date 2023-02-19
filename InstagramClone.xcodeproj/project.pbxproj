@@ -50,6 +50,7 @@
 		87DBA0D929A0A3D0002C924F /* NotificationListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D829A0A3D0002C924F /* NotificationListVC.swift */; };
 		87DBA0DB29A0A3E6002C924F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0DA29A0A3E6002C924F /* ProfileVC.swift */; };
 		87DBA0DD29A0BBB3002C924F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DBA0DC29A0BBB3002C924F /* Assets.xcassets */; };
+		87DBA0DF29A0D0FA002C924F /* FeedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0DE29A0D0FA002C924F /* FeedTC.swift */; };
 		95CF93AE6637AF3FF1225BF4 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0DAEB0CE4D4C177E5E6F01 /* Pods_InstagramClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		87DBA0D829A0A3D0002C924F /* NotificationListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListVC.swift; sourceTree = "<group>"; };
 		87DBA0DA29A0A3E6002C924F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		87DBA0DC29A0BBB3002C924F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		87DBA0DE29A0D0FA002C924F /* FeedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTC.swift; sourceTree = "<group>"; };
 		C0E54A8AD512447589C76B33 /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				87DBA0D229A0A37F002C924F /* FeedVC.swift */,
+				87DBA0DE29A0D0FA002C924F /* FeedTC.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 			files = (
 				878C17DF2997C18F004120D0 /* Common.swift in Sources */,
 				878C17CB2997A565004120D0 /* String+Extension.swift in Sources */,
+				87DBA0DF29A0D0FA002C924F /* FeedTC.swift in Sources */,
 				878C17C82997A565004120D0 /* AsynchronousOperation.swift in Sources */,
 				878C17CC2997A565004120D0 /* UINavigationBar+Extension.swift in Sources */,
 				878C17D22997A565004120D0 /* ParentLoadableListVC.swift in Sources */,
