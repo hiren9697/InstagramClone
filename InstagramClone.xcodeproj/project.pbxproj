@@ -44,6 +44,8 @@
 		878C17DF2997C18F004120D0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17DE2997C18F004120D0 /* Common.swift */; };
 		878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E12997C1E8004120D0 /* EmptyView.swift */; };
 		878C17E42997C1E8004120D0 /* TableNextPageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */; };
+		87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4529A282D9003D1768 /* LoginVC.swift */; };
+		87AAFF4829A28924003D1768 /* TF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4729A28924003D1768 /* TF.swift */; };
 		87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D229A0A37F002C924F /* FeedVC.swift */; };
 		87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D429A0A39E002C924F /* SearchVC.swift */; };
 		87DBA0D729A0A3B2002C924F /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D629A0A3B2002C924F /* AddPostVC.swift */; };
@@ -96,6 +98,8 @@
 		878C17DE2997C18F004120D0 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		878C17E12997C1E8004120D0 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNextPageLoad.swift; sourceTree = "<group>"; };
+		87AAFF4529A282D9003D1768 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		87AAFF4729A28924003D1768 /* TF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TF.swift; sourceTree = "<group>"; };
 		87DBA0D229A0A37F002C924F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		87DBA0D429A0A39E002C924F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		87DBA0D629A0A3B2002C924F /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				87023A7D2998C7130019683A /* TabBarController.swift */,
+				87AAFF4429A282C2003D1768 /* Authentication */,
 				87023A7F2998CA480019683A /* Feed */,
 				87023A802998CA4C0019683A /* Search */,
 				87023A812998CA560019683A /* AddPost */,
@@ -345,8 +350,17 @@
 			children = (
 				878C17E12997C1E8004120D0 /* EmptyView.swift */,
 				878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */,
+				87AAFF4729A28924003D1768 /* TF.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		87AAFF4429A282C2003D1768 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				87AAFF4529A282D9003D1768 /* LoginVC.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E5D12B53D1624C27EB320364 /* Frameworks */ = {
@@ -495,6 +509,7 @@
 				878C17CA2997A565004120D0 /* NSDictionary+Extension.swift in Sources */,
 				878C17DD2997C16B004120D0 /* TFTCVM.swift in Sources */,
 				878C17C92997A565004120D0 /* UIColor+Extension.swift in Sources */,
+				87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */,
 				878C1785299790E3004120D0 /* AppDelegate.swift in Sources */,
 				878C17D52997A565004120D0 /* PermissionManager.swift in Sources */,
 				878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */,
@@ -513,6 +528,7 @@
 				878C17CF2997A565004120D0 /* WebService.swift in Sources */,
 				878C17C02997A565004120D0 /* NSObject+Observable.swift in Sources */,
 				878C17D02997A565004120D0 /* ParentCell.swift in Sources */,
+				87AAFF4829A28924003D1768 /* TF.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
