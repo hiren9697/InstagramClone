@@ -10,7 +10,6 @@
 		87023A7E2998C7130019683A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87023A7D2998C7130019683A /* TabBarController.swift */; };
 		878C1785299790E3004120D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1784299790E3004120D0 /* AppDelegate.swift */; };
 		878C1787299790E3004120D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1786299790E3004120D0 /* SceneDelegate.swift */; };
-		878C1789299790E3004120D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1788299790E3004120D0 /* ViewController.swift */; };
 		878C178C299790E3004120D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878C178A299790E3004120D0 /* Main.storyboard */; };
 		878C1791299790E4004120D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878C178F299790E4004120D0 /* LaunchScreen.storyboard */; };
 		878C17A12997A520004120D0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878C17A02997A520004120D0 /* Colors.xcassets */; };
@@ -44,6 +43,7 @@
 		878C17DF2997C18F004120D0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17DE2997C18F004120D0 /* Common.swift */; };
 		878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E12997C1E8004120D0 /* EmptyView.swift */; };
 		878C17E42997C1E8004120D0 /* TableNextPageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */; };
+		87A1400B29AA208A002B35DF /* TapGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1400A29AA208A002B35DF /* TapGestureExtension.swift */; };
 		87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4529A282D9003D1768 /* LoginVC.swift */; };
 		87AAFF4829A28924003D1768 /* TF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4729A28924003D1768 /* TF.swift */; };
 		87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D229A0A37F002C924F /* FeedVC.swift */; };
@@ -63,7 +63,6 @@
 		878C1781299790E3004120D0 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		878C1784299790E3004120D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878C1786299790E3004120D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		878C1788299790E3004120D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		878C178B299790E3004120D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		878C1790299790E4004120D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878C1792299790E4004120D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		878C17DE2997C18F004120D0 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		878C17E12997C1E8004120D0 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNextPageLoad.swift; sourceTree = "<group>"; };
+		87A1400A29AA208A002B35DF /* TapGestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureExtension.swift; sourceTree = "<group>"; };
 		87AAFF4529A282D9003D1768 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		87AAFF4729A28924003D1768 /* TF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TF.swift; sourceTree = "<group>"; };
 		87DBA0D229A0A37F002C924F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -201,7 +201,6 @@
 				878C179E2997A4DE004120D0 /* Controller */,
 				878C179F2997A4E5004120D0 /* Resources */,
 				878C17A22997A565004120D0 /* Utilities */,
-				878C1788299790E3004120D0 /* ViewController.swift */,
 				878C178A299790E3004120D0 /* Main.storyboard */,
 				878C178F299790E4004120D0 /* LaunchScreen.storyboard */,
 				878C1792299790E4004120D0 /* Info.plist */,
@@ -312,6 +311,7 @@
 				878C17B12997A565004120D0 /* String+Extension.swift */,
 				878C17B22997A565004120D0 /* UINavigationBar+Extension.swift */,
 				878C17B32997A565004120D0 /* UIViewAnchor+Extension.swift */,
+				87A1400A29AA208A002B35DF /* TapGestureExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -498,7 +498,6 @@
 				878C17CD2997A565004120D0 /* UIViewAnchor+Extension.swift in Sources */,
 				878C17C32997A565004120D0 /* Observable.swift in Sources */,
 				878C17C72997A565004120D0 /* CustomErrors.swift in Sources */,
-				878C1789299790E3004120D0 /* ViewController.swift in Sources */,
 				878C17C52997A565004120D0 /* CommonModel.swift in Sources */,
 				878C17DC2997C16B004120D0 /* LoadableVM.swift in Sources */,
 				87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */,
@@ -517,6 +516,7 @@
 				878C17C12997A565004120D0 /* UIControls+Bindable.swift in Sources */,
 				87023A7E2998C7130019683A /* TabBarController.swift in Sources */,
 				87DBA0D929A0A3D0002C924F /* NotificationListVC.swift in Sources */,
+				87A1400B29AA208A002B35DF /* TapGestureExtension.swift in Sources */,
 				878C17D12997A565004120D0 /* ParentVC.swift in Sources */,
 				878C1787299790E3004120D0 /* SceneDelegate.swift in Sources */,
 				878C17D62997A565004120D0 /* Loadable.swift in Sources */,

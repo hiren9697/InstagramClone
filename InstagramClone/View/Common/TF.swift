@@ -12,24 +12,23 @@ class TF: UIView {
     
     let tf = UITextField()
     let placeholder: String
-    var returnKey: UIReturnKeyType
-    var isSecureTextEntry: Bool
+    let keyboardType: UIKeyboardType
+    let returnKey: UIReturnKeyType
+    let isSecureTextEntry: Bool
     var nextKeyAction: VoidCallback?
     var didChangeAction: StringCallback?
     
     init(placeholder: String,
          isSecureTextEntry: Bool,
+         keyboardType: UIKeyboardType,
          returnKey: UIReturnKeyType) {
         self.placeholder = placeholder
         self.isSecureTextEntry = isSecureTextEntry
+        self.keyboardType = keyboardType
         self.returnKey = returnKey
         super.init(frame: CGRect.zero)
         configureUI()
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

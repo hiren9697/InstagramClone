@@ -18,7 +18,7 @@ class ParentVC: UIViewController, LoaderLoadable {
     }()
     
     var loaderColor: UIColor {
-        return AppColor.blue
+        return AppColor.cBlue
     }
 
     override func viewDidLoad() {

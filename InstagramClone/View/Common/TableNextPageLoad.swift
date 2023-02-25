@@ -11,14 +11,14 @@ class TableNextPageLoad: UIView {
     
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
-        activity.tintColor = AppColor.blue
+        activity.tintColor = AppColor.cBlue
         return activity
     }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = AppColor.charcole
+        label.textColor = AppColor.cCharcole
         return label
     }()
     

@@ -50,7 +50,7 @@ class ErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = AppColor.charcole
+        label.textColor = AppColor.cCharcole
         return label
     }()
     
