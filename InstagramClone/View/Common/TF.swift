@@ -46,6 +46,7 @@ extension TF {
         tf.returnKeyType = returnKey
         tf.borderStyle = .none
         tf.textColor = .white
+        tf.tintColor = .white
         tf.backgroundColor = .clear
         tf.font = UIFont.systemFont(ofSize: 13)
         tf.attributedPlaceholder = NSAttributedString(

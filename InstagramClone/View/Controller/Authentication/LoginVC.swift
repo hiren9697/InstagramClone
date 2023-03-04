@@ -8,8 +8,10 @@
 import UIKit
 
 // MARK: - VC
-class LoginVC: ParentVC {
+final class LoginVC: ParentVC {
     
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
     private let iconImageView = UIImageView()
     private let tfEmail = TF(placeholder: "Email",
                              isSecureTextEntry: false,
@@ -35,6 +37,7 @@ extension LoginVC {
     private func configureUI() {
         setupNavigationBar()
         setupBackground()
+        setupScrollView()
         setupIcon()
         setupTextFieldsAndButton()
         setupForgotPasswordLabel()
@@ -54,12 +57,32 @@ extension LoginVC {
         view.layer.addSublayer(gradientLayer)
     }
     
+    private func setupScrollView() {
+        // Setup scrollview
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addAnchors(top: YAnchor(anchor: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+                              bottom: YAnchor(anchor: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+                              leading: XAnchor(anchor: view.leadingAnchor, constant: 0),
+                              trailing: XAnchor(anchor: view.trailingAnchor, constant: 0))
+        scrollView.alwaysBounceVertical = true 
+        scrollView.keyboardDismissMode = .interactive
+        // Setup container view
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(containerView)
+        containerView.addAnchors(top: YAnchor(anchor: scrollView.contentLayoutGuide.topAnchor, constant: 0),
+                                 bottom: YAnchor(anchor: scrollView.contentLayoutGuide.bottomAnchor, constant: 0),
+                                 leading: XAnchor(anchor: scrollView.contentLayoutGuide.leadingAnchor, constant: 0),
+                                 trailing: XAnchor(anchor: scrollView.contentLayoutGuide.trailingAnchor, constant: 0),
+                                 width: LayoutAnchor(anchor: scrollView.frameLayoutGuide.widthAnchor, constant: 0))
+    }
+    
     private func setupIcon() {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.image = UIImage(named: "ic_instagram_logo_white")!
-        view.addSubview(iconImageView)
-        iconImageView.addAnchors(top: YAnchor(anchor: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-                                 centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
+        containerView.addSubview(iconImageView)
+        iconImageView.addAnchors(top: YAnchor(anchor: containerView.safeAreaLayoutGuide.topAnchor, constant: 32),
+                                 centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
     private func setupTextFieldsAndButton() {
@@ -80,7 +103,7 @@ extension LoginVC {
         btnLogin.layer.cornerRadius = 4
         btnLogin.layer.masksToBounds = true
         btnLogin.addTarget(self, action: #selector(loginTap(_:)), for: .touchUpInside)
-        view.addSubview(btnLogin)
+        containerView.addSubview(btnLogin)
         btnLogin.addAnchors(heightConstant: SizeConstantAnchor(constant: 50))
         // Stack view
         let tfStackView = UIStackView(arrangedSubviews: [tfEmail, tfPassword, btnLogin])
@@ -88,10 +111,10 @@ extension LoginVC {
         tfStackView.axis = .vertical
         tfStackView.alignment = .fill
         tfStackView.distribution = .fillEqually
-        view.addSubview(tfStackView)
+        containerView.addSubview(tfStackView)
         tfStackView.addAnchors(top: YAnchor(anchor: iconImageView.bottomAnchor, constant: 20),
-                           leading: XAnchor(anchor: view.leadingAnchor, constant: 20),
-                           trailing: XAnchor(anchor: view.trailingAnchor, constant: -20))
+                           leading: XAnchor(anchor: containerView.leadingAnchor, constant: 20),
+                           trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -20))
     }
     
     private func setupForgotPasswordLabel() {
@@ -101,20 +124,32 @@ extension LoginVC {
         lblForgotPassword.translatesAutoresizingMaskIntoConstraints = false
         lblForgotPassword.isUserInteractionEnabled = true
         lblForgotPassword.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTap(_:))))
-        view.addSubview(lblForgotPassword)
+        containerView.addSubview(lblForgotPassword)
         lblForgotPassword.addAnchors(top: YAnchor(anchor: stackView.bottomAnchor, constant: 35),
-                                     centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
+                                     centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
     private func setupSignupLabel() {
+        func getTopAnchorConstant()-> CGFloat {
+            containerView.layoutIfNeeded()
+            let spaceTillForgotPassword = lblForgotPassword.frame.origin.y + lblForgotPassword.frame.height
+            let labelHeight: CGFloat = lblSignup.frame.height
+            let bottomSpace: CGFloat = 10
+            let safeAreaSpace: CGFloat = Geometry.topSafearea + Geometry.bottomSafearea
+            let space = view.frame.height - (spaceTillForgotPassword + labelHeight + bottomSpace + safeAreaSpace)
+            Log.info(space)
+            return space
+        }
+        
         setSignupText()
         lblSignup.numberOfLines = 0
         lblSignup.translatesAutoresizingMaskIntoConstraints = false
         lblSignup.isUserInteractionEnabled = true
         lblSignup.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTap(_:))))
-        view.addSubview(lblSignup)
-        lblSignup.addAnchors(bottom: YAnchor(anchor: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-                             centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
+        containerView.addSubview(lblSignup)
+        lblSignup.addAnchors(top: YAnchor(anchor: lblForgotPassword.bottomAnchor, constant: getTopAnchorConstant()),
+                             bottom: YAnchor(anchor: containerView.bottomAnchor, constant: 0),
+                             centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
     private func setForgotPasswordText() {
