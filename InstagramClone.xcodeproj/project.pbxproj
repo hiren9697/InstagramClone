@@ -49,6 +49,8 @@
 		87D2C7B429B2F63500A582B0 /* Toast.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D2C7B029B2F63500A582B0 /* Toast.xib */; };
 		87D2C7B529B2F63500A582B0 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7B129B2F63500A582B0 /* Toast.swift */; };
 		87D2C7B629B2F63500A582B0 /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */; };
+		87D2C7DB29B33C5F00A582B0 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */; };
+		87D2C7DD29B33F7400A582B0 /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7DC29B33F7400A582B0 /* TextValidator.swift */; };
 		87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D229A0A37F002C924F /* FeedVC.swift */; };
 		87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D429A0A39E002C924F /* SearchVC.swift */; };
 		87DBA0D729A0A3B2002C924F /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D629A0A3B2002C924F /* AddPostVC.swift */; };
@@ -106,6 +108,8 @@
 		87D2C7B029B2F63500A582B0 /* Toast.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Toast.xib; sourceTree = "<group>"; };
 		87D2C7B129B2F63500A582B0 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
+		87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		87D2C7DC29B33F7400A582B0 /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
 		87DBA0D229A0A37F002C924F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		87DBA0D429A0A39E002C924F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		87DBA0D629A0A3B2002C924F /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 		878C179C2997A4D5004120D0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				87D2C7D929B33C5400A582B0 /* Authentication */,
 				878C17D72997C16B004120D0 /* Common */,
 			);
 			path = ViewModel;
@@ -294,6 +299,7 @@
 				878C17B52997A565004120D0 /* WebService.swift */,
 				878C17BB2997A565004120D0 /* CommonFunctions.swift */,
 				878C17BC2997A565004120D0 /* PermissionManager.swift */,
+				87D2C7DC29B33F7400A582B0 /* TextValidator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -378,6 +384,14 @@
 				87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		87D2C7D929B33C5400A582B0 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		E5D12B53D1624C27EB320364 /* Frameworks */ = {
@@ -519,6 +533,7 @@
 				878C17C52997A565004120D0 /* CommonModel.swift in Sources */,
 				878C17DC2997C16B004120D0 /* LoadableVM.swift in Sources */,
 				87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */,
+				87D2C7DB29B33C5F00A582B0 /* LoginVM.swift in Sources */,
 				878C17E42997C1E8004120D0 /* TableNextPageLoad.swift in Sources */,
 				878C17C42997A565004120D0 /* Log.swift in Sources */,
 				878C17C22997A565004120D0 /* Bindable.swift in Sources */,
@@ -533,6 +548,7 @@
 				878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */,
 				87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */,
 				878C17C12997A565004120D0 /* UIControls+Bindable.swift in Sources */,
+				87D2C7DD29B33F7400A582B0 /* TextValidator.swift in Sources */,
 				87023A7E2998C7130019683A /* TabBarController.swift in Sources */,
 				87DBA0D929A0A3D0002C924F /* NotificationListVC.swift in Sources */,
 				87A1400B29AA208A002B35DF /* TapGestureExtension.swift in Sources */,

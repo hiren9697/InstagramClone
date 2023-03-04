@@ -13,14 +13,9 @@ final class LoginVC: ParentVC {
     private let scrollView = UIScrollView()
     private let containerView = UIView()
     private let iconImageView = UIImageView()
-    private let tfEmail = TF(placeholder: "Email",
-                             isSecureTextEntry: false,
-                             keyboardType: .emailAddress,
-                             returnKey: .next)
-    private let tfPassword = TF(placeholder: "Password",
-                                isSecureTextEntry: true,
-                                keyboardType: .asciiCapable,
-                                returnKey: .done)
+    private let vm = LoginVM()
+    private var tfEmail: TF!
+    private var tfPassword: TF!
     private let btnLogin = UIButton()
     private let lblForgotPassword = UILabel()
     private let lblSignup = UILabel()
@@ -65,7 +60,7 @@ extension LoginVC {
                               bottom: YAnchor(anchor: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
                               leading: XAnchor(anchor: view.leadingAnchor, constant: 0),
                               trailing: XAnchor(anchor: view.trailingAnchor, constant: 0))
-        scrollView.alwaysBounceVertical = true 
+        scrollView.alwaysBounceVertical = true
         scrollView.keyboardDismissMode = .interactive
         // Setup container view
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,10 +82,12 @@ extension LoginVC {
     
     private func setupTextFieldsAndButton() {
         // Email TF
+        tfEmail = TF(vm: vm.emailVM)
         tfEmail.nextKeyAction = {[weak self] in
             self?.tfPassword.tf.becomeFirstResponder()
         }
         // Password TF
+        tfPassword = TF(vm: vm.passwordVM)
         tfPassword.nextKeyAction = {[weak self] in
             self?.tfPassword.tf.resignFirstResponder()
         }
@@ -121,11 +118,14 @@ extension LoginVC {
         let stackView = btnLogin.superview as! UIStackView
         setForgotPasswordText()
         lblForgotPassword.numberOfLines = 0
+        lblForgotPassword.textAlignment = .center
         lblForgotPassword.translatesAutoresizingMaskIntoConstraints = false
         lblForgotPassword.isUserInteractionEnabled = true
         lblForgotPassword.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTap(_:))))
         containerView.addSubview(lblForgotPassword)
         lblForgotPassword.addAnchors(top: YAnchor(anchor: stackView.bottomAnchor, constant: 35),
+                                     leading: XAnchor(anchor: containerView.leadingAnchor, constant: 10),
+                                     trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -10),
                                      centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
@@ -137,18 +137,20 @@ extension LoginVC {
             let bottomSpace: CGFloat = 10
             let safeAreaSpace: CGFloat = Geometry.topSafearea + Geometry.bottomSafearea
             let space = view.frame.height - (spaceTillForgotPassword + labelHeight + bottomSpace + safeAreaSpace)
-            Log.info(space)
             return space
         }
         
         setSignupText()
         lblSignup.numberOfLines = 0
+        lblSignup.textAlignment = .center
         lblSignup.translatesAutoresizingMaskIntoConstraints = false
         lblSignup.isUserInteractionEnabled = true
         lblSignup.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTap(_:))))
         containerView.addSubview(lblSignup)
         lblSignup.addAnchors(top: YAnchor(anchor: lblForgotPassword.bottomAnchor, constant: getTopAnchorConstant()),
                              bottom: YAnchor(anchor: containerView.bottomAnchor, constant: 0),
+                             leading: XAnchor(anchor: containerView.leadingAnchor, constant: 10),
+                             trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -10),
                              centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
@@ -177,7 +179,14 @@ extension LoginVC {
 extension LoginVC {
     
     @objc func loginTap(_ sender: UIButton) {
-        print("Login tapped")
+        view.endEditing(true)
+        let validation = vm.validateInputs()
+        switch validation {
+        case .success:
+            Log.info("Navigate to home screen")
+        case .error(let message):
+            Toast.shared.show(message)
+        }
     }
     
     @objc func forgotPasswordTap(_ sender: UITapGestureRecognizer) {

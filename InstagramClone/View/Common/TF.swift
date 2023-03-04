@@ -7,25 +7,34 @@
 
 import UIKit
 
-// MARK: - TF
-class TF: UIView {
-    
-    let tf = UITextField()
+class TFVM {
+    var text: String = ""
     let placeholder: String
     let keyboardType: UIKeyboardType
     let returnKey: UIReturnKeyType
     let isSecureTextEntry: Bool
+    
+    init(placeholder: String,
+         keyboardType: UIKeyboardType,
+         returnKey: UIReturnKeyType,
+         isSecureTextEntry: Bool) {
+        self.placeholder = placeholder
+        self.keyboardType = keyboardType
+        self.returnKey = returnKey
+        self.isSecureTextEntry = isSecureTextEntry
+    }
+}
+
+// MARK: - TF
+class TF: UIView {
+    
+    let tf = UITextField()
+    let vm: TFVM
     var nextKeyAction: VoidCallback?
     var didChangeAction: StringCallback?
     
-    init(placeholder: String,
-         isSecureTextEntry: Bool,
-         keyboardType: UIKeyboardType,
-         returnKey: UIReturnKeyType) {
-        self.placeholder = placeholder
-        self.isSecureTextEntry = isSecureTextEntry
-        self.keyboardType = keyboardType
-        self.returnKey = returnKey
+    init(vm: TFVM) {
+        self.vm = vm
         super.init(frame: CGRect.zero)
         configureUI()
     }
@@ -41,16 +50,16 @@ extension TF {
     private func configureUI() {
         // TextField
         tf.delegate = self
-        tf.isSecureTextEntry = isSecureTextEntry
-        tf.keyboardType = keyboardType
-        tf.returnKeyType = returnKey
+        tf.isSecureTextEntry = vm.isSecureTextEntry
+        tf.keyboardType = vm.keyboardType
+        tf.returnKeyType = vm.returnKey
         tf.borderStyle = .none
         tf.textColor = .white
         tf.tintColor = .white
         tf.backgroundColor = .clear
         tf.font = UIFont.systemFont(ofSize: 13)
         tf.attributedPlaceholder = NSAttributedString(
-            string: placeholder,
+            string: vm.placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white,
                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
         )
@@ -68,6 +77,7 @@ extension TF {
     }
     
     @objc func didChange(_ tf: UITextField) {
+        vm.text = tf.text!
         didChangeAction?(tf.text!)
     }
 }
