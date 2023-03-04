@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum TextValidationResult {
-    case success
-    case error(message: String)
-}
-
 final class LoginVM {
     let emailVM = TFVM(placeholder: "Email Address",
                        keyboardType: .emailAddress,

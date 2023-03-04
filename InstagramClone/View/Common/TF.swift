@@ -52,6 +52,9 @@ extension TF {
         tf.delegate = self
         tf.isSecureTextEntry = vm.isSecureTextEntry
         tf.keyboardType = vm.keyboardType
+        if vm.keyboardType == .emailAddress {
+            tf.autocapitalizationType = .none
+        }
         tf.returnKeyType = vm.returnKey
         tf.borderStyle = .none
         tf.textColor = .white

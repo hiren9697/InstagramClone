@@ -38,7 +38,6 @@
 		878C17D62997A565004120D0 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17BE2997A565004120D0 /* Loadable.swift */; };
 		878C17DB2997C16B004120D0 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17D82997C16B004120D0 /* ListVM.swift */; };
 		878C17DC2997C16B004120D0 /* LoadableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17D92997C16B004120D0 /* LoadableVM.swift */; };
-		878C17DD2997C16B004120D0 /* TFTCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17DA2997C16B004120D0 /* TFTCVM.swift */; };
 		878C17DF2997C18F004120D0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17DE2997C18F004120D0 /* Common.swift */; };
 		878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E12997C1E8004120D0 /* EmptyView.swift */; };
 		878C17E42997C1E8004120D0 /* TableNextPageLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */; };
@@ -51,6 +50,8 @@
 		87D2C7B629B2F63500A582B0 /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */; };
 		87D2C7DB29B33C5F00A582B0 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */; };
 		87D2C7DD29B33F7400A582B0 /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7DC29B33F7400A582B0 /* TextValidator.swift */; };
+		87D2C7DF29B34A3500A582B0 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7DE29B34A3500A582B0 /* RegisterVM.swift */; };
+		87D2C7E129B34B1200A582B0 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7E029B34B1200A582B0 /* RegisterVC.swift */; };
 		87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D229A0A37F002C924F /* FeedVC.swift */; };
 		87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D429A0A39E002C924F /* SearchVC.swift */; };
 		87DBA0D729A0A3B2002C924F /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D629A0A3B2002C924F /* AddPostVC.swift */; };
@@ -97,7 +98,6 @@
 		878C17BE2997A565004120D0 /* Loadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		878C17D82997C16B004120D0 /* ListVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
 		878C17D92997C16B004120D0 /* LoadableVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadableVM.swift; sourceTree = "<group>"; };
-		878C17DA2997C16B004120D0 /* TFTCVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFTCVM.swift; sourceTree = "<group>"; };
 		878C17DE2997C18F004120D0 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		878C17E12997C1E8004120D0 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		878C17E22997C1E8004120D0 /* TableNextPageLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableNextPageLoad.swift; sourceTree = "<group>"; };
@@ -110,6 +110,8 @@
 		87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
 		87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		87D2C7DC29B33F7400A582B0 /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		87D2C7DE29B34A3500A582B0 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		87D2C7E029B34B1200A582B0 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		87DBA0D229A0A37F002C924F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		87DBA0D429A0A39E002C924F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		87DBA0D629A0A3B2002C924F /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
@@ -352,7 +354,6 @@
 			children = (
 				878C17D82997C16B004120D0 /* ListVM.swift */,
 				878C17D92997C16B004120D0 /* LoadableVM.swift */,
-				878C17DA2997C16B004120D0 /* TFTCVM.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -371,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				87AAFF4529A282D9003D1768 /* LoginVC.swift */,
+				87D2C7E029B34B1200A582B0 /* RegisterVC.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				87D2C7DA29B33C5F00A582B0 /* LoginVM.swift */,
+				87D2C7DE29B34A3500A582B0 /* RegisterVM.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				878C17CD2997A565004120D0 /* UIViewAnchor+Extension.swift in Sources */,
 				878C17C32997A565004120D0 /* Observable.swift in Sources */,
 				878C17C72997A565004120D0 /* CustomErrors.swift in Sources */,
+				87D2C7E129B34B1200A582B0 /* RegisterVC.swift in Sources */,
 				878C17C52997A565004120D0 /* CommonModel.swift in Sources */,
 				878C17DC2997C16B004120D0 /* LoadableVM.swift in Sources */,
 				87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */,
@@ -540,7 +544,6 @@
 				878C17D42997A565004120D0 /* CommonFunctions.swift in Sources */,
 				878C17CA2997A565004120D0 /* NSDictionary+Extension.swift in Sources */,
 				87D2C7B529B2F63500A582B0 /* Toast.swift in Sources */,
-				878C17DD2997C16B004120D0 /* TFTCVM.swift in Sources */,
 				878C17C92997A565004120D0 /* UIColor+Extension.swift in Sources */,
 				87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */,
 				878C1785299790E3004120D0 /* AppDelegate.swift in Sources */,
@@ -561,6 +564,7 @@
 				878C17BF2997A565004120D0 /* Constants.swift in Sources */,
 				878C17CE2997A565004120D0 /* AppMessages.swift in Sources */,
 				878C17CF2997A565004120D0 /* WebService.swift in Sources */,
+				87D2C7DF29B34A3500A582B0 /* RegisterVM.swift in Sources */,
 				878C17C02997A565004120D0 /* NSObject+Observable.swift in Sources */,
 				878C17D02997A565004120D0 /* ParentCell.swift in Sources */,
 				87AAFF4829A28924003D1768 /* TF.swift in Sources */,

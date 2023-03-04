@@ -115,6 +115,16 @@ extension LoginVC {
     }
     
     private func setupForgotPasswordLabel() {
+        func setForgotPasswordText() {
+            let text = NSMutableAttributedString(string: "Forgot your password? ",
+                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                                                       NSAttributedString.Key.foregroundColor: UIColor.white])
+            text.append(NSAttributedString(string: "Get help signing in",
+                                           attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
+                                                        NSAttributedString.Key.foregroundColor: UIColor.white]))
+            lblForgotPassword.attributedText = text
+        }
+        
         let stackView = btnLogin.superview as! UIStackView
         setForgotPasswordText()
         lblForgotPassword.numberOfLines = 0
@@ -130,6 +140,16 @@ extension LoginVC {
     }
     
     private func setupSignupLabel() {
+        func setSignupText() {
+            let text = NSMutableAttributedString(string: "Don't have an account? ",
+                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                                                       NSAttributedString.Key.foregroundColor: UIColor.white])
+            text.append(NSAttributedString(string: "Sign Up",
+                                           attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
+                                                        NSAttributedString.Key.foregroundColor: UIColor.white]))
+            lblSignup.attributedText = text
+        }
+
         func getTopAnchorConstant()-> CGFloat {
             containerView.layoutIfNeeded()
             let spaceTillForgotPassword = lblForgotPassword.frame.origin.y + lblForgotPassword.frame.height
@@ -153,26 +173,6 @@ extension LoginVC {
                              trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -10),
                              centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
-    
-    private func setForgotPasswordText() {
-        let text = NSMutableAttributedString(string: "Forgot your password? ",
-                                      attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                   NSAttributedString.Key.foregroundColor: UIColor.white])
-        text.append(NSAttributedString(string: "Get help signing in",
-                                       attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                    NSAttributedString.Key.foregroundColor: UIColor.white]))
-        lblForgotPassword.attributedText = text
-    }
-    
-    private func setSignupText() {
-        let text = NSMutableAttributedString(string: "Don't have an account? ",
-                                      attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                   NSAttributedString.Key.foregroundColor: UIColor.white])
-        text.append(NSAttributedString(string: "Sign Up",
-                                       attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                    NSAttributedString.Key.foregroundColor: UIColor.white]))
-        lblSignup.attributedText = text
-    }
 }
 
 // MARK: - Action(s)
@@ -190,6 +190,7 @@ extension LoginVC {
     }
     
     @objc func forgotPasswordTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
         let text: NSString = lblForgotPassword.attributedText!.string as NSString
         let range = text.range(of: "Get help signing in")
         if sender.didTapAttributedTextInLabel(label: lblForgotPassword, inRange: range) {
@@ -198,13 +199,47 @@ extension LoginVC {
     }
     
     @objc func signupTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
         let text: NSString = lblSignup.attributedText!.string as NSString
         let range = text.range(of: "Sign Up")
         if sender.didTapAttributedTextInLabel(label: lblSignup, inRange: range) {
-            print("Navigate to Sign Up")
+            // Navigate to signup
+            let registerVC = RegisterVC()
+            navigationController?.pushViewController(registerVC, animated: true)
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //        NSLayoutConstraint(item: lblForgotPassword,

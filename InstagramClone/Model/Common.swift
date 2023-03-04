@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Validation {
+enum TextValidationResult {
     case success
-    case error(String)
+    case error(message: String)
 }
