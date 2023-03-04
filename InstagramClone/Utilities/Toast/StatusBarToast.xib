@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Y9F-6y-aWM" customClass="StatusBarToast" customModule="Structure" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="403" height="20"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eum-E1-yjg">
+                    <rect key="frame" x="0.0" y="0.0" width="403" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhH-ae-CZa">
+                            <rect key="frame" x="182" y="-3" width="39.5" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstItem="hhH-ae-CZa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Eum-E1-yjg" secondAttribute="leading" constant="10" id="7vv-vw-zHp"/>
+                        <constraint firstAttribute="bottom" secondItem="hhH-ae-CZa" secondAttribute="bottom" constant="3" id="S2F-Gp-zdm"/>
+                        <constraint firstItem="hhH-ae-CZa" firstAttribute="centerX" secondItem="Eum-E1-yjg" secondAttribute="centerX" id="WP7-Ex-aXE"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hhH-ae-CZa" secondAttribute="trailing" constant="10" id="ibW-DR-HxO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="7HS-dk-A2U"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="7HS-dk-A2U" firstAttribute="trailing" secondItem="Eum-E1-yjg" secondAttribute="trailing" id="HNO-rh-7gr"/>
+                <constraint firstItem="Eum-E1-yjg" firstAttribute="top" secondItem="Y9F-6y-aWM" secondAttribute="top" id="Pf6-Wc-eaQ"/>
+                <constraint firstItem="Eum-E1-yjg" firstAttribute="leading" secondItem="7HS-dk-A2U" secondAttribute="leading" id="i8a-Aj-KKZ"/>
+                <constraint firstItem="Eum-E1-yjg" firstAttribute="height" secondItem="Y9F-6y-aWM" secondAttribute="height" id="mV3-3k-Cv0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="constrTop" destination="Pf6-Wc-eaQ" id="p2U-ZC-RKJ"/>
+                <outlet property="containerView" destination="Eum-E1-yjg" id="UAr-na-SSJ"/>
+                <outlet property="lbl" destination="hhH-ae-CZa" id="cwb-xq-DSp"/>
+            </connections>
+            <point key="canvasLocation" x="65.94202898550725" y="302.34375"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

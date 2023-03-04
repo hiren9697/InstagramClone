@@ -42,6 +42,7 @@ extension TF {
         // TextField
         tf.delegate = self
         tf.isSecureTextEntry = isSecureTextEntry
+        tf.keyboardType = keyboardType
         tf.returnKeyType = returnKey
         tf.borderStyle = .none
         tf.textColor = .white

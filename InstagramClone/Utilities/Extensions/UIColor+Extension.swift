@@ -8,12 +8,8 @@
 import UIKit
 
 struct AppColor {
-    static let white: UIColor = UIColor.white
-//    static let blue: UIColor = UIColor(displayP3Red: 55 / 255, green: 161 / 255, blue: 243 / 255, alpha: 1)
-//    static let disabledBlue: UIColor = UIColor(displayP3Red: 55 / 255, green: 161 / 255, blue: 243 / 255, alpha: 0.3)
-//    static let gray: UIColor = UIColor(named: "gray")!
-//    static let lightGray: UIColor = UIColor(named: "lightGray")!
-    
+    static let cWhite: UIColor = UIColor.white
+    static let cRed: UIColor = UIColor.red
     static let cBlue: UIColor = UIColor(named: "cBlue")!
     static let cBrightRed: UIColor = UIColor(named: "cBrightRed")!
     static let cOrange: UIColor = UIColor(named: "cOrange")!

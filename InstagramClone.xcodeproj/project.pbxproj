@@ -10,7 +10,6 @@
 		87023A7E2998C7130019683A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87023A7D2998C7130019683A /* TabBarController.swift */; };
 		878C1785299790E3004120D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1784299790E3004120D0 /* AppDelegate.swift */; };
 		878C1787299790E3004120D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1786299790E3004120D0 /* SceneDelegate.swift */; };
-		878C178C299790E3004120D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878C178A299790E3004120D0 /* Main.storyboard */; };
 		878C1791299790E4004120D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878C178F299790E4004120D0 /* LaunchScreen.storyboard */; };
 		878C17A12997A520004120D0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878C17A02997A520004120D0 /* Colors.xcassets */; };
 		878C17BF2997A565004120D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C17A32997A565004120D0 /* Constants.swift */; };
@@ -46,6 +45,10 @@
 		87A1400B29AA208A002B35DF /* TapGestureExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A1400A29AA208A002B35DF /* TapGestureExtension.swift */; };
 		87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4529A282D9003D1768 /* LoginVC.swift */; };
 		87AAFF4829A28924003D1768 /* TF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AAFF4729A28924003D1768 /* TF.swift */; };
+		87D2C7B329B2F63500A582B0 /* StatusBarToast.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D2C7AF29B2F63500A582B0 /* StatusBarToast.xib */; };
+		87D2C7B429B2F63500A582B0 /* Toast.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D2C7B029B2F63500A582B0 /* Toast.xib */; };
+		87D2C7B529B2F63500A582B0 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7B129B2F63500A582B0 /* Toast.swift */; };
+		87D2C7B629B2F63500A582B0 /* StatusBarToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */; };
 		87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D229A0A37F002C924F /* FeedVC.swift */; };
 		87DBA0D529A0A39E002C924F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D429A0A39E002C924F /* SearchVC.swift */; };
 		87DBA0D729A0A3B2002C924F /* AddPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBA0D629A0A3B2002C924F /* AddPostVC.swift */; };
@@ -63,7 +66,6 @@
 		878C1781299790E3004120D0 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		878C1784299790E3004120D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878C1786299790E3004120D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		878C178B299790E3004120D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		878C1790299790E4004120D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878C1792299790E4004120D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		878C17A02997A520004120D0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,10 @@
 		87A1400A29AA208A002B35DF /* TapGestureExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureExtension.swift; sourceTree = "<group>"; };
 		87AAFF4529A282D9003D1768 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		87AAFF4729A28924003D1768 /* TF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TF.swift; sourceTree = "<group>"; };
+		87D2C7AF29B2F63500A582B0 /* StatusBarToast.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusBarToast.xib; sourceTree = "<group>"; };
+		87D2C7B029B2F63500A582B0 /* Toast.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Toast.xib; sourceTree = "<group>"; };
+		87D2C7B129B2F63500A582B0 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarToast.swift; sourceTree = "<group>"; };
 		87DBA0D229A0A37F002C924F /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		87DBA0D429A0A39E002C924F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		87DBA0D629A0A3B2002C924F /* AddPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostVC.swift; sourceTree = "<group>"; };
@@ -193,16 +199,14 @@
 		878C1783299790E3004120D0 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				878C178F299790E4004120D0 /* LaunchScreen.storyboard */,
 				878C179829979214004120D0 /* LifeCycle */,
 				878C179A2997A4CB004120D0 /* Service */,
 				878C179B2997A4D2004120D0 /* Model */,
 				878C179C2997A4D5004120D0 /* ViewModel */,
 				878C179D2997A4DA004120D0 /* View */,
-				878C179E2997A4DE004120D0 /* Controller */,
 				878C179F2997A4E5004120D0 /* Resources */,
 				878C17A22997A565004120D0 /* Utilities */,
-				878C178A299790E3004120D0 /* Main.storyboard */,
-				878C178F299790E4004120D0 /* LaunchScreen.storyboard */,
 				878C1792299790E4004120D0 /* Info.plist */,
 			);
 			path = InstagramClone;
@@ -243,6 +247,7 @@
 		878C179D2997A4DA004120D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				878C179E2997A4DE004120D0 /* Controller */,
 				878C17E02997C1E8004120D0 /* Common */,
 			);
 			path = View;
@@ -274,6 +279,7 @@
 		878C17A22997A565004120D0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				87D2C7AE29B2F63500A582B0 /* Toast */,
 				878C17BD2997A565004120D0 /* Protocols */,
 				878C17B62997A565004120D0 /* Parent */,
 				878C17A42997A565004120D0 /* ViewModel */,
@@ -363,6 +369,17 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		87D2C7AE29B2F63500A582B0 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				87D2C7AF29B2F63500A582B0 /* StatusBarToast.xib */,
+				87D2C7B029B2F63500A582B0 /* Toast.xib */,
+				87D2C7B129B2F63500A582B0 /* Toast.swift */,
+				87D2C7B229B2F63500A582B0 /* StatusBarToast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		E5D12B53D1624C27EB320364 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,7 +451,8 @@
 				878C1791299790E4004120D0 /* LaunchScreen.storyboard in Resources */,
 				878C17A12997A520004120D0 /* Colors.xcassets in Resources */,
 				87DBA0DD29A0BBB3002C924F /* Assets.xcassets in Resources */,
-				878C178C299790E3004120D0 /* Main.storyboard in Resources */,
+				87D2C7B429B2F63500A582B0 /* Toast.xib in Resources */,
+				87D2C7B329B2F63500A582B0 /* StatusBarToast.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +524,7 @@
 				878C17C22997A565004120D0 /* Bindable.swift in Sources */,
 				878C17D42997A565004120D0 /* CommonFunctions.swift in Sources */,
 				878C17CA2997A565004120D0 /* NSDictionary+Extension.swift in Sources */,
+				87D2C7B529B2F63500A582B0 /* Toast.swift in Sources */,
 				878C17DD2997C16B004120D0 /* TFTCVM.swift in Sources */,
 				878C17C92997A565004120D0 /* UIColor+Extension.swift in Sources */,
 				87AAFF4629A282D9003D1768 /* LoginVC.swift in Sources */,
@@ -529,20 +548,13 @@
 				878C17C02997A565004120D0 /* NSObject+Observable.swift in Sources */,
 				878C17D02997A565004120D0 /* ParentCell.swift in Sources */,
 				87AAFF4829A28924003D1768 /* TF.swift in Sources */,
+				87D2C7B629B2F63500A582B0 /* StatusBarToast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		878C178A299790E3004120D0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				878C178B299790E3004120D0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		878C178F299790E4004120D0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -681,7 +693,7 @@
 				INFOPLIST_FILE = InstagramClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -714,7 +726,7 @@
 				INFOPLIST_FILE = InstagramClone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
