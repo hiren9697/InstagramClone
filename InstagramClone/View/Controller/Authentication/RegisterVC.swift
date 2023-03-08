@@ -52,11 +52,12 @@ extension RegisterVC {
     }
     
     private func setupBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.frame = view.frame
-        view.layer.addSublayer(gradientLayer)
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
+//        gradientLayer.locations = [0, 1]
+//        gradientLayer.frame = view.frame
+//        view.layer.addSublayer(gradientLayer)
+        view.backgroundColor = AppColor.cPrimaryBackground
     }
     
     private func setupScrollView() {
@@ -83,7 +84,6 @@ extension RegisterVC {
         // Profile Image View
         let addPhotoImage = UIImage(named: "plus_photo")!.withRenderingMode(.alwaysTemplate)
         profileImageView.image = addPhotoImage
-        profileImageView.tintColor = .white
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(profileImageView)
@@ -94,8 +94,6 @@ extension RegisterVC {
         heightConstant: SizeConstantAnchor(constant: 100))
         profileImageView.layer.cornerRadius = 50
         profileImageView.layer.masksToBounds = true
-        profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.layer.borderWidth = 2
         // Profile Button
         containerView.addSubview(btnProfileImage)
         btnProfileImage.addTarget(self, action: #selector(profileImageTap(_:)), for: .touchUpInside)
@@ -134,14 +132,14 @@ extension RegisterVC {
         // Login button
         btnSignup.translatesAutoresizingMaskIntoConstraints = false
         btnSignup.setTitle("Signup", for: .normal)
-        btnSignup.setTitleColor(.purple, for: .normal)
-        btnSignup.backgroundColor = .white
-        btnSignup.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        btnSignup.layer.cornerRadius = 4
+        btnSignup.setTitleColor(AppColor.cButtonTitleColor, for: .normal)
+        btnSignup.backgroundColor = AppColor.cButtonBackground
+        btnSignup.titleLabel?.font = AppFont.semibold.withSize(14)
+        btnSignup.layer.cornerRadius = 5
         btnSignup.layer.masksToBounds = true
         btnSignup.addTarget(self, action: #selector(signupTap(_:)), for: .touchUpInside)
         containerView.addSubview(btnSignup)
-        btnSignup.addAnchors(heightConstant: SizeConstantAnchor(constant: 50))
+        btnSignup.addAnchors(heightConstant: SizeConstantAnchor(constant: 44))
         // Stack view
         let tfStackView = UIStackView(arrangedSubviews: [tfEmail, tfFullName, tfUsername, tfPassword, tfConfirmPassword, btnSignup])
         tfStackView.spacing = 20
@@ -158,11 +156,11 @@ extension RegisterVC {
     private func setupLoginLabel() {
         func setLoginText() {
             let text = NSMutableAttributedString(string: "Already have an account? ",
-                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                       NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                 attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(14),
+                                                              NSAttributedString.Key.foregroundColor: AppColor.cSecondaryTextColor])
             text.append(NSAttributedString(string: "Log In",
-                                           attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                        NSAttributedString.Key.foregroundColor: UIColor.white]))
+                                           attributes: [NSAttributedString.Key.font : AppFont.semibold.withSize(16),
+                                                        NSAttributedString.Key.foregroundColor: AppColor.cButtonBackground]))
             lblLogin.attributedText = text
         }
         

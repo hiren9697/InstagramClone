@@ -56,7 +56,7 @@ class ValidationToastView: UIView {
     @IBOutlet weak var animatingView: UIView!
     
     deinit {
-        print("ToastView Deallocated")
+        Log.deallocate("ToastView Deallocated")
     }
     
     // MARK: Toast Functions

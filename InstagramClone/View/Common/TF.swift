@@ -57,15 +57,16 @@ extension TF {
         }
         tf.returnKeyType = vm.returnKey
         tf.borderStyle = .none
-        tf.textColor = .white
+        tf.textColor = AppColor.cPrimaryTextColor
         tf.tintColor = .white
         tf.backgroundColor = .clear
-        tf.font = UIFont.systemFont(ofSize: 13)
-        tf.attributedPlaceholder = NSAttributedString(
-            string: vm.placeholder,
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white,
-                         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
-        )
+        tf.font = AppFont.regular.withSize(14)
+        tf.placeholder = vm.placeholder
+//        tf.attributedPlaceholder = NSAttributedString(
+//            string: vm.placeholder,
+//            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white,
+//                         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13)]
+//        )
         tf.addTarget(self, action: #selector(didChange(_:)), for: .editingChanged)
         addSubview(tf)
         tf.addAnchors(top: YAnchor(anchor: self.topAnchor, constant: 0),
@@ -73,9 +74,11 @@ extension TF {
                       leading: XAnchor(anchor: self.leadingAnchor, constant: 8),
                       trailing: XAnchor(anchor: self.trailingAnchor, constant: 8))
         // View
-        self.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        self.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.layer.cornerRadius = 4
+        self.backgroundColor = AppColor.cInputBackground
+        self.layer.borderWidth = 1
+        self.layer.borderColor = AppColor.cInputBorder.cgColor
+        self.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        self.layer.cornerRadius = 5
         self.layer.masksToBounds = true
     }
     

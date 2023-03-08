@@ -38,5 +38,6 @@ extension AppDelegate {
     
     private func configure() {
         FirebaseApp.configure()
+//        printAllFonts()
     }
 }

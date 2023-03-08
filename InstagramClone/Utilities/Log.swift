@@ -16,6 +16,7 @@ enum Log {
         case warning
         case success
         case error
+        case deallocate
         
         fileprivate var symbole: String {
             switch self {
@@ -25,6 +26,7 @@ enum Log {
             case .warning: return "⚠️"
             case .success: return "✅"
             case .error: return "🛑"
+            case .deallocate: return "🔥"
             }
         }
     }
@@ -158,6 +160,22 @@ extension Log {
                               function: function,
                               line: line)
         Log.handleLog(level: .error,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
+    public static func deallocate(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .deallocate,
                       content: content,
                       shouldLogContext: shouldLogContext,
                       context: context)

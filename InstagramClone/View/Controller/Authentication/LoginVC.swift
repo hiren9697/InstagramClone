@@ -45,11 +45,12 @@ extension LoginVC {
     }
     
     private func setupBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.frame = view.frame
-        view.layer.addSublayer(gradientLayer)
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
+//        gradientLayer.locations = [0, 1]
+//        gradientLayer.frame = view.frame
+//        view.layer.addSublayer(gradientLayer)
+        view.backgroundColor = AppColor.cPrimaryBackground
     }
     
     private func setupScrollView() {
@@ -74,7 +75,7 @@ extension LoginVC {
     
     private func setupIcon() {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.image = UIImage(named: "ic_instagram_logo_white")!
+        iconImageView.image = UIImage(named: "ic_instagram_logo")!
         containerView.addSubview(iconImageView)
         iconImageView.addAnchors(top: YAnchor(anchor: containerView.safeAreaLayoutGuide.topAnchor, constant: 32),
                                  centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
@@ -94,14 +95,14 @@ extension LoginVC {
         // Login button
         btnLogin.translatesAutoresizingMaskIntoConstraints = false
         btnLogin.setTitle("Login", for: .normal)
-        btnLogin.setTitleColor(.purple, for: .normal)
-        btnLogin.backgroundColor = .white
-        btnLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        btnLogin.layer.cornerRadius = 4
+        btnLogin.setTitleColor(AppColor.cButtonTitleColor, for: .normal)
+        btnLogin.backgroundColor = AppColor.cButtonBackground
+        btnLogin.titleLabel?.font = AppFont.semibold.withSize(14)
+        btnLogin.layer.cornerRadius = 5
         btnLogin.layer.masksToBounds = true
         btnLogin.addTarget(self, action: #selector(loginTap(_:)), for: .touchUpInside)
         containerView.addSubview(btnLogin)
-        btnLogin.addAnchors(heightConstant: SizeConstantAnchor(constant: 50))
+        btnLogin.addAnchors(heightConstant: SizeConstantAnchor(constant: 44))
         // Stack view
         let tfStackView = UIStackView(arrangedSubviews: [tfEmail, tfPassword, btnLogin])
         tfStackView.spacing = 20
@@ -117,11 +118,11 @@ extension LoginVC {
     private func setupForgotPasswordLabel() {
         func setForgotPasswordText() {
             let text = NSMutableAttributedString(string: "Forgot your password? ",
-                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                       NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                 attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(14),
+                                                              NSAttributedString.Key.foregroundColor: AppColor.cSecondaryTextColor])
             text.append(NSAttributedString(string: "Get help signing in",
-                                           attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                        NSAttributedString.Key.foregroundColor: UIColor.white]))
+                                           attributes: [NSAttributedString.Key.font : AppFont.semibold.withSize(16),
+                                                        NSAttributedString.Key.foregroundColor: AppColor.cButtonBackground]))
             lblForgotPassword.attributedText = text
         }
         
@@ -142,11 +143,11 @@ extension LoginVC {
     private func setupSignupLabel() {
         func setSignupText() {
             let text = NSMutableAttributedString(string: "Don't have an account? ",
-                                          attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                       NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                 attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(14),
+                                                              NSAttributedString.Key.foregroundColor: AppColor.cSecondaryTextColor])
             text.append(NSAttributedString(string: "Sign Up",
-                                           attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                        NSAttributedString.Key.foregroundColor: UIColor.white]))
+                                           attributes: [NSAttributedString.Key.font : AppFont.semibold.withSize(16),
+                                                        NSAttributedString.Key.foregroundColor: AppColor.cButtonBackground]))
             lblSignup.attributedText = text
         }
 
