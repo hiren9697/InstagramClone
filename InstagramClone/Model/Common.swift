@@ -7,7 +7,12 @@
 
 import Foundation
 
-enum TextValidationResult {
-    case success
-    case error(message: String)
+//enum TextValidationResult {
+//    case success
+//    case error(message: String)
+//}
+
+enum ImageUploadResult {
+    case success(path: String)
+    case error(error: Error)
 }

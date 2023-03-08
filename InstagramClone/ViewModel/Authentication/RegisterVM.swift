@@ -8,6 +8,8 @@
 import UIKit
 
 final class RegisterVM {
+    var webServiceOperationStatus: Observable<WebServiceOperationStatus> = Observable(.idle)
+    var textValidationMessage: Observable<String?> = Observable(nil)
     var profileImage: UIImage?
     let emailVM = TFVM(placeholder: "Email Address",
                        keyboardType: .emailAddress,
@@ -30,7 +32,30 @@ final class RegisterVM {
                           returnKey: .done,
                           isSecureTextEntry: true)
     
-    func validateInputs()-> TextValidationResult {
+    func register(successCompletion: @escaping VoidCallback) {
+        if validateInputs() {
+            webServiceOperationStatus.value = .loading
+            let data = RegisterData(email: emailVM.text,
+                                    password: passwordVM.text,
+                                    fullName: fullNameVM.text,
+                                    userName: usernameVM.text,
+                                    profileImage: profileImage)
+            AuthService.register(data: data) {[weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(_):
+                    Log.success("Successfully registered user")
+                    strongSelf.webServiceOperationStatus.value = .idle
+                    successCompletion()
+                case .failure(let error):
+                    Log.error("Failed to register user: \(error.localizedDescription)")
+                    strongSelf.webServiceOperationStatus.value = .finishedWithError(message: error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    private func validateInputs()-> Bool {
         let validator = TextValidator()
         let email = emailVM.text
         let fullName = fullNameVM.text
@@ -38,27 +63,37 @@ final class RegisterVM {
         let password = passwordVM.text
         let confirmPassword = confirmPasswordVM.text
         if validator.isEmpty(email) {
-            return .error(message: "Please enter email")
+            textValidationMessage.value = "Please enter email"
+            return false
         } else if validator.isEmpty(fullName) {
-            return .error(message: "Please enter fullname")
+            textValidationMessage.value = "Please enter fullname"
+            return false
         } else if validator.isEmpty(userName) {
-            return .error(message: "Please enter username")
+            textValidationMessage.value = "Please enter username"
+            return false
         } else if validator.isEmpty(password) {
-            return .error(message: "Please enter password")
+            textValidationMessage.value = "Please enter password"
+            return false
         } else if validator.isEmpty(confirmPassword) {
-            return .error(message: "Please enter confirm password")
+            textValidationMessage.value = "Please enter confirm password"
+            return false
         } else if !validator.isValidEmailAddress(email) {
-            return .error(message: "Please enter valid email")
+            textValidationMessage.value = "Please enter valid email"
+            return false
         } else if !validator.isValidUsername(userName) {
-            return .error(message: "Please enter valid username")
+            textValidationMessage.value = "Please enter valid username"
+            return false
         } else if !validator.isValidPassword(password) {
-            return .error(message: "Please enter valid password")
+            textValidationMessage.value = "Please enter valid password"
+            return false
         } else if !validator.isValidPassword(confirmPassword) {
-            return .error(message: "Please enter confirm password")
+            textValidationMessage.value = "Please enter confirm password"
+            return false
         } else if password != confirmPassword {
-            return .error(message: "Password and confirm password don't match")
+            textValidationMessage.value = "Password and confirm password don't match"
+            return false
         } else {
-            return .success
+            return true
         }
     }
 }

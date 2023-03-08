@@ -14,6 +14,7 @@ enum Log {
         case apiRequest
         case apiResponse
         case warning
+        case success
         case error
         
         fileprivate var symbole: String {
@@ -22,6 +23,7 @@ enum Log {
             case .apiRequest: return "↖︎"
             case .apiResponse: return "↘︎"
             case .warning: return "⚠️"
+            case .success: return "✅"
             case .error: return "🛑"
             }
         }
@@ -124,6 +126,22 @@ extension Log {
                               function: function,
                               line: line)
         Log.handleLog(level: .warning,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
+    public static func success(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .success,
                       content: content,
                       shouldLogContext: shouldLogContext,
                       context: context)

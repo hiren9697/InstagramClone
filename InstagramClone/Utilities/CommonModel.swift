@@ -56,6 +56,7 @@ struct AppError {
 
 // MARK: - Type Alias
 typealias VoidCallback = (()-> ())
+typealias ErrorCallback = ((Error)-> ())
 typealias StringCallback = ((String)-> ())
 typealias IntCallback = ((Int)-> ())
 typealias BoolCallback = ((Bool)-> ())

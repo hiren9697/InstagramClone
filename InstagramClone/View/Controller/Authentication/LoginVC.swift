@@ -180,12 +180,8 @@ extension LoginVC {
     
     @objc func loginTap(_ sender: UIButton) {
         view.endEditing(true)
-        let validation = vm.validateInputs()
-        switch validation {
-        case .success:
-            Log.info("Navigate to home screen")
-        case .error(let message):
-            Toast.shared.show(message)
+        vm.login {
+            // Navigate to home
         }
     }
     
@@ -210,6 +206,30 @@ extension LoginVC {
     }
 }
 
+// MARK: - Helper method(s)
+extension LoginVC {
+    
+    private func setupBinders() {
+        vm.textValidationMessage.bind {[weak self] observable, message in
+            guard let message = message,
+            let _ = self else {
+                return
+            }
+            Toast.shared.show(message)
+        }
+        vm.webServiceOperationStatus.bind {[weak self] observable, status in
+            guard let strongSelf = self else { return }
+            switch status {
+            case .idle:
+                strongSelf.hideLoader()
+            case .loading:
+                strongSelf.showLoader(disableInteraction: true)
+            case .finishedWithError(let message):
+                Toast.shared.show(message)
+            }
+        }
+    }
+}
 
 
 

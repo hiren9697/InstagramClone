@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		87023A7E2998C7130019683A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87023A7D2998C7130019683A /* TabBarController.swift */; };
+		873FDFCA29B499BA00F73949 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 873FDFC929B499BA00F73949 /* GoogleService-Info.plist */; };
+		873FDFCC29B4AFF300F73949 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FDFCB29B4AFF300F73949 /* ImageUploader.swift */; };
+		873FDFCF29B4B6AB00F73949 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FDFCE29B4B6AB00F73949 /* AuthenticationModel.swift */; };
+		873FDFD129B4B6FD00F73949 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FDFD029B4B6FD00F73949 /* AuthService.swift */; };
+		873FDFD329B4BC2E00F73949 /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873FDFD229B4BC2E00F73949 /* ServiceConstants.swift */; };
 		878C1785299790E3004120D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1784299790E3004120D0 /* AppDelegate.swift */; };
 		878C1787299790E3004120D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C1786299790E3004120D0 /* SceneDelegate.swift */; };
 		878C1791299790E4004120D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878C178F299790E4004120D0 /* LaunchScreen.storyboard */; };
@@ -66,6 +71,11 @@
 		3B473EF2404C0A94A1E5A6B6 /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		3C0DAEB0CE4D4C177E5E6F01 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87023A7D2998C7130019683A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		873FDFC929B499BA00F73949 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		873FDFCB29B4AFF300F73949 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		873FDFCE29B4B6AB00F73949 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
+		873FDFD029B4B6FD00F73949 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		873FDFD229B4BC2E00F73949 /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
 		878C1781299790E3004120D0 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		878C1784299790E3004120D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		878C1786299790E3004120D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +194,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		873FDFCD29B4B69F00F73949 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				873FDFCE29B4B6AB00F73949 /* AuthenticationModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		878C1778299790E3004120D0 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +232,7 @@
 				878C179F2997A4E5004120D0 /* Resources */,
 				878C17A22997A565004120D0 /* Utilities */,
 				878C1792299790E4004120D0 /* Info.plist */,
+				873FDFC929B499BA00F73949 /* GoogleService-Info.plist */,
 			);
 			path = InstagramClone;
 			sourceTree = "<group>";
@@ -230,6 +249,9 @@
 		878C179A2997A4CB004120D0 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				873FDFCB29B4AFF300F73949 /* ImageUploader.swift */,
+				873FDFD029B4B6FD00F73949 /* AuthService.swift */,
+				873FDFD229B4BC2E00F73949 /* ServiceConstants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -237,6 +259,7 @@
 		878C179B2997A4D2004120D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				873FDFCD29B4B69F00F73949 /* Authentication */,
 				878C17DE2997C18F004120D0 /* Common.swift */,
 			);
 			path = Model;
@@ -470,6 +493,7 @@
 				87DBA0DD29A0BBB3002C924F /* Assets.xcassets in Resources */,
 				87D2C7B429B2F63500A582B0 /* Toast.xib in Resources */,
 				87D2C7B329B2F63500A582B0 /* StatusBarToast.xib in Resources */,
+				873FDFCA29B499BA00F73949 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,7 +551,9 @@
 				87DBA0DF29A0D0FA002C924F /* FeedTC.swift in Sources */,
 				878C17C82997A565004120D0 /* AsynchronousOperation.swift in Sources */,
 				878C17CC2997A565004120D0 /* UINavigationBar+Extension.swift in Sources */,
+				873FDFCF29B4B6AB00F73949 /* AuthenticationModel.swift in Sources */,
 				878C17D22997A565004120D0 /* ParentLoadableListVC.swift in Sources */,
+				873FDFD129B4B6FD00F73949 /* AuthService.swift in Sources */,
 				878C17D32997A565004120D0 /* ParentListVC.swift in Sources */,
 				87DBA0D729A0A3B2002C924F /* AddPostVC.swift in Sources */,
 				878C17CD2997A565004120D0 /* UIViewAnchor+Extension.swift in Sources */,
@@ -541,6 +567,7 @@
 				878C17E42997C1E8004120D0 /* TableNextPageLoad.swift in Sources */,
 				878C17C42997A565004120D0 /* Log.swift in Sources */,
 				878C17C22997A565004120D0 /* Bindable.swift in Sources */,
+				873FDFD329B4BC2E00F73949 /* ServiceConstants.swift in Sources */,
 				878C17D42997A565004120D0 /* CommonFunctions.swift in Sources */,
 				878C17CA2997A565004120D0 /* NSDictionary+Extension.swift in Sources */,
 				87D2C7B529B2F63500A582B0 /* Toast.swift in Sources */,
@@ -551,6 +578,7 @@
 				878C17E32997C1E8004120D0 /* EmptyView.swift in Sources */,
 				87DBA0D329A0A37F002C924F /* FeedVC.swift in Sources */,
 				878C17C12997A565004120D0 /* UIControls+Bindable.swift in Sources */,
+				873FDFCC29B4AFF300F73949 /* ImageUploader.swift in Sources */,
 				87D2C7DD29B33F7400A582B0 /* TextValidator.swift in Sources */,
 				87023A7E2998C7130019683A /* TabBarController.swift in Sources */,
 				87DBA0D929A0A3D0002C924F /* NotificationListVC.swift in Sources */,

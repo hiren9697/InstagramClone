@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - VC
-class RegisterVC: UIViewController {
+final class RegisterVC: ParentVC {
     
     private let scrollView = UIScrollView()
     private let containerView = UIView()
@@ -28,6 +28,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         addKeyboardObserver()
+        setupBinders()
     }
 }
 
@@ -208,12 +209,9 @@ extension RegisterVC {
     
     @objc func signupTap(_ sender: UIButton) {
         view.endEditing(true)
-        let validation = vm.validateInputs()
-        switch validation {
-        case .success:
-            Log.info("Navigate to home screen")
-        case .error(let message):
-            Toast.shared.show(message)
+        vm.register {[weak self] in
+            let feedVC = FeedVC()
+            self?.navigationController?.pushViewController(feedVC, animated: true)
         }
     }
     
@@ -230,6 +228,28 @@ extension RegisterVC {
 
 // MARK: - Helper method(s)
 extension RegisterVC {
+    
+    private func setupBinders() {
+        vm.textValidationMessage.bind {[weak self] observable, message in
+            guard let message = message,
+            let _ = self else {
+                return
+            }
+            Toast.shared.show(message)
+        }
+        vm.webServiceOperationStatus.bind {[weak self] observable, status in
+            guard let strongSelf = self else { return }
+            switch status {
+            case .idle:
+                strongSelf.hideLoader()
+            case .loading:
+                strongSelf.showLoader(disableInteraction: true)
+            case .finishedWithError(let message):
+                strongSelf.hideLoader()
+                Toast.shared.show(message)
+            }
+        }
+    }
     
     private func showImageSelectionAlert() {
         let alert = UIAlertController(title: nil,

@@ -8,6 +8,8 @@
 import UIKit
 
 final class LoginVM {
+    var webServiceOperationStatus: Observable<WebServiceOperationStatus> = Observable(.idle)
+    var textValidationMessage: Observable<String?> = Observable(nil)
     let emailVM = TFVM(placeholder: "Email Address",
                        keyboardType: .emailAddress,
                        returnKey: .next,
@@ -17,20 +19,31 @@ final class LoginVM {
                           returnKey: .done,
                           isSecureTextEntry: true)
     
-    func validateInputs()-> TextValidationResult {
+    func login(successCompletion: @escaping VoidCallback) {
+        if validateInputs() {
+            // Do login
+            successCompletion()
+        }
+    }
+    
+    func validateInputs()-> Bool {
         let validator = TextValidator()
         let email = emailVM.text
         let password = passwordVM.text
         if validator.isEmpty(email) {
-            return .error(message: "Please enter email")
+            textValidationMessage.value = "Please enter email"
+            return false
         } else if validator.isEmpty(password) {
-            return .error(message: "Please enter password")
+            textValidationMessage.value = "Please enter password"
+            return false
         } else if !validator.isValidEmailAddress(email) {
-            return .error(message: "Please enter valid email")
+            textValidationMessage.value = "Please enter valid email"
+            return false
         } else if !validator.isValidPassword(password) {
-            return .error(message: "Please enter valid password")
+            textValidationMessage.value = "Please enter valid password"
+            return false
         } else {
-            return .success
+            return true
         }
     }
 }
