@@ -8,17 +8,14 @@
 import UIKit
 
 // MARK: - VC
-class LoginVC: ParentVC {
+final class LoginVC: ParentVC {
     
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
     private let iconImageView = UIImageView()
-    private let tfEmail = TF(placeholder: "Email",
-                             isSecureTextEntry: false,
-                             keyboardType: .emailAddress,
-                             returnKey: .next)
-    private let tfPassword = TF(placeholder: "Password",
-                                isSecureTextEntry: true,
-                                keyboardType: .asciiCapable,
-                                returnKey: .done)
+    private let vm = LoginVM()
+    private var tfEmail: TF!
+    private var tfPassword: TF!
     private let btnLogin = UIButton()
     private let lblForgotPassword = UILabel()
     private let lblSignup = UILabel()
@@ -26,6 +23,7 @@ class LoginVC: ParentVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupBinders()
     }
 }
 
@@ -35,6 +33,7 @@ extension LoginVC {
     private func configureUI() {
         setupNavigationBar()
         setupBackground()
+        setupScrollView()
         setupIcon()
         setupTextFieldsAndButton()
         setupForgotPasswordLabel()
@@ -47,94 +46,134 @@ extension LoginVC {
     }
     
     private func setupBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
-        gradientLayer.locations = [0, 1]
-        gradientLayer.frame = view.frame
-        view.layer.addSublayer(gradientLayer)
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.colors = [AppColor.cPurpleRed.cgColor, AppColor.cBlue.cgColor]
+//        gradientLayer.locations = [0, 1]
+//        gradientLayer.frame = view.frame
+//        view.layer.addSublayer(gradientLayer)
+        view.backgroundColor = AppColor.cPrimaryBackground
+    }
+    
+    private func setupScrollView() {
+        // Setup scrollview
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        scrollView.addAnchors(top: YAnchor(anchor: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+                              bottom: YAnchor(anchor: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+                              leading: XAnchor(anchor: view.leadingAnchor, constant: 0),
+                              trailing: XAnchor(anchor: view.trailingAnchor, constant: 0))
+        scrollView.alwaysBounceVertical = true
+        scrollView.keyboardDismissMode = .interactive
+        // Setup container view
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(containerView)
+        containerView.addAnchors(top: YAnchor(anchor: scrollView.contentLayoutGuide.topAnchor, constant: 0),
+                                 bottom: YAnchor(anchor: scrollView.contentLayoutGuide.bottomAnchor, constant: 0),
+                                 leading: XAnchor(anchor: scrollView.contentLayoutGuide.leadingAnchor, constant: 0),
+                                 trailing: XAnchor(anchor: scrollView.contentLayoutGuide.trailingAnchor, constant: 0),
+                                 width: LayoutAnchor(anchor: scrollView.frameLayoutGuide.widthAnchor, constant: 0))
     }
     
     private func setupIcon() {
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.image = UIImage(named: "ic_instagram_logo_white")!
-        view.addSubview(iconImageView)
-        iconImageView.addAnchors(top: YAnchor(anchor: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-                                 centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
+        iconImageView.image = UIImage(named: "ic_instagram_logo")!
+        containerView.addSubview(iconImageView)
+        iconImageView.addAnchors(top: YAnchor(anchor: containerView.safeAreaLayoutGuide.topAnchor, constant: 32),
+                                 centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
     private func setupTextFieldsAndButton() {
         // Email TF
+        tfEmail = TF(vm: vm.emailVM)
         tfEmail.nextKeyAction = {[weak self] in
             self?.tfPassword.tf.becomeFirstResponder()
         }
         // Password TF
+        tfPassword = TF(vm: vm.passwordVM)
         tfPassword.nextKeyAction = {[weak self] in
             self?.tfPassword.tf.resignFirstResponder()
         }
         // Login button
         btnLogin.translatesAutoresizingMaskIntoConstraints = false
         btnLogin.setTitle("Login", for: .normal)
-        btnLogin.setTitleColor(.purple, for: .normal)
-        btnLogin.backgroundColor = .white
-        btnLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        btnLogin.layer.cornerRadius = 4
+        btnLogin.setTitleColor(AppColor.cButtonTitleColor, for: .normal)
+        btnLogin.backgroundColor = AppColor.cButtonBackground
+        btnLogin.titleLabel?.font = AppFont.semibold.withSize(14)
+        btnLogin.layer.cornerRadius = 5
         btnLogin.layer.masksToBounds = true
         btnLogin.addTarget(self, action: #selector(loginTap(_:)), for: .touchUpInside)
-        view.addSubview(btnLogin)
-        btnLogin.addAnchors(heightConstant: SizeConstantAnchor(constant: 50))
+        containerView.addSubview(btnLogin)
+        btnLogin.addAnchors(heightConstant: SizeConstantAnchor(constant: 44))
         // Stack view
         let tfStackView = UIStackView(arrangedSubviews: [tfEmail, tfPassword, btnLogin])
         tfStackView.spacing = 20
         tfStackView.axis = .vertical
         tfStackView.alignment = .fill
         tfStackView.distribution = .fillEqually
-        view.addSubview(tfStackView)
+        containerView.addSubview(tfStackView)
         tfStackView.addAnchors(top: YAnchor(anchor: iconImageView.bottomAnchor, constant: 20),
-                           leading: XAnchor(anchor: view.leadingAnchor, constant: 20),
-                           trailing: XAnchor(anchor: view.trailingAnchor, constant: -20))
+                           leading: XAnchor(anchor: containerView.leadingAnchor, constant: 20),
+                           trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -20))
     }
     
     private func setupForgotPasswordLabel() {
+        func setForgotPasswordText() {
+            let text = NSMutableAttributedString(string: "Forgot your password? ",
+                                                 attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(14),
+                                                              NSAttributedString.Key.foregroundColor: AppColor.cSecondaryTextColor])
+            text.append(NSAttributedString(string: "Get help signing in",
+                                           attributes: [NSAttributedString.Key.font : AppFont.semibold.withSize(16),
+                                                        NSAttributedString.Key.foregroundColor: AppColor.cButtonBackground]))
+            lblForgotPassword.attributedText = text
+        }
+        
         let stackView = btnLogin.superview as! UIStackView
         setForgotPasswordText()
         lblForgotPassword.numberOfLines = 0
+        lblForgotPassword.textAlignment = .center
         lblForgotPassword.translatesAutoresizingMaskIntoConstraints = false
         lblForgotPassword.isUserInteractionEnabled = true
         lblForgotPassword.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTap(_:))))
-        view.addSubview(lblForgotPassword)
+        containerView.addSubview(lblForgotPassword)
         lblForgotPassword.addAnchors(top: YAnchor(anchor: stackView.bottomAnchor, constant: 35),
-                                     centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
+                                     leading: XAnchor(anchor: containerView.leadingAnchor, constant: 10),
+                                     trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -10),
+                                     centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
     
     private func setupSignupLabel() {
+        func setSignupText() {
+            let text = NSMutableAttributedString(string: "Don't have an account? ",
+                                                 attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(14),
+                                                              NSAttributedString.Key.foregroundColor: AppColor.cSecondaryTextColor])
+            text.append(NSAttributedString(string: "Sign Up",
+                                           attributes: [NSAttributedString.Key.font : AppFont.semibold.withSize(16),
+                                                        NSAttributedString.Key.foregroundColor: AppColor.cButtonBackground]))
+            lblSignup.attributedText = text
+        }
+
+        func getTopAnchorConstant()-> CGFloat {
+            containerView.layoutIfNeeded()
+            let spaceTillForgotPassword = lblForgotPassword.frame.origin.y + lblForgotPassword.frame.height
+            let labelHeight: CGFloat = lblSignup.frame.height
+            let bottomSpace: CGFloat = 10
+            let safeAreaSpace: CGFloat = Geometry.topSafearea + Geometry.bottomSafearea
+            let space = view.frame.height - (spaceTillForgotPassword + labelHeight + bottomSpace + safeAreaSpace)
+            return space
+        }
+        
         setSignupText()
         lblSignup.numberOfLines = 0
+        lblSignup.textAlignment = .center
         lblSignup.translatesAutoresizingMaskIntoConstraints = false
         lblSignup.isUserInteractionEnabled = true
         lblSignup.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(signupTap(_:))))
-        view.addSubview(lblSignup)
-        lblSignup.addAnchors(bottom: YAnchor(anchor: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-                             centerX: XAnchor(anchor: view.centerXAnchor, constant: 0))
-    }
-    
-    private func setForgotPasswordText() {
-        let text = NSMutableAttributedString(string: "Forgot your password? ",
-                                      attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                   NSAttributedString.Key.foregroundColor: UIColor.white])
-        text.append(NSAttributedString(string: "Get help signing in",
-                                       attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                    NSAttributedString.Key.foregroundColor: UIColor.white]))
-        lblForgotPassword.attributedText = text
-    }
-    
-    private func setSignupText() {
-        let text = NSMutableAttributedString(string: "Don't have an account? ",
-                                      attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
-                                                   NSAttributedString.Key.foregroundColor: UIColor.white])
-        text.append(NSAttributedString(string: "Sign Up",
-                                       attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),
-                                                    NSAttributedString.Key.foregroundColor: UIColor.white]))
-        lblSignup.attributedText = text
+        containerView.addSubview(lblSignup)
+        lblSignup.addAnchors(top: YAnchor(anchor: lblForgotPassword.bottomAnchor, constant: getTopAnchorConstant()),
+                             bottom: YAnchor(anchor: containerView.bottomAnchor, constant: 0),
+                             leading: XAnchor(anchor: containerView.leadingAnchor, constant: 10),
+                             trailing: XAnchor(anchor: containerView.trailingAnchor, constant: -10),
+                             centerX: XAnchor(anchor: containerView.centerXAnchor, constant: 0))
     }
 }
 
@@ -142,10 +181,14 @@ extension LoginVC {
 extension LoginVC {
     
     @objc func loginTap(_ sender: UIButton) {
-        print("Login tapped")
+        view.endEditing(true)
+        vm.login {
+            FlowManager.shared.navigateToHome()
+        }
     }
     
     @objc func forgotPasswordTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
         let text: NSString = lblForgotPassword.attributedText!.string as NSString
         let range = text.range(of: "Get help signing in")
         if sender.didTapAttributedTextInLabel(label: lblForgotPassword, inRange: range) {
@@ -154,13 +197,71 @@ extension LoginVC {
     }
     
     @objc func signupTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
         let text: NSString = lblSignup.attributedText!.string as NSString
         let range = text.range(of: "Sign Up")
         if sender.didTapAttributedTextInLabel(label: lblSignup, inRange: range) {
-            print("Navigate to Sign Up")
+            // Navigate to signup
+            let registerVC = RegisterVC()
+            navigationController?.pushViewController(registerVC, animated: true)
         }
     }
 }
+
+// MARK: - Helper method(s)
+extension LoginVC {
+    
+    private func setupBinders() {
+        vm.textValidationMessage.bind {[weak self] observable, message in
+            guard let message = message,
+            let _ = self else {
+                return
+            }
+            Toast.shared.show(message)
+        }
+        vm.webServiceOperationStatus.bind {[weak self] observable, status in
+            guard let strongSelf = self else { return }
+            switch status {
+            case .idle:
+                strongSelf.hideLoader()
+            case .loading:
+                strongSelf.showLoader(disableInteraction: true)
+            case .finishedWithError(let message):
+                Toast.shared.show(message)
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //        NSLayoutConstraint(item: lblForgotPassword,

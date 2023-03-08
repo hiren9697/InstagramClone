@@ -31,11 +31,9 @@ public class Observable<ObservedType> {
 
     private var observers: [Observer]
 
-    public var value: ObservedType? {
+    public var value: ObservedType {
         didSet {
-            if let value = value {
-                notifyObservers(value)
-            }
+            notifyObservers(value)
         }
     }
     
@@ -43,7 +41,7 @@ public class Observable<ObservedType> {
         return !observers.isEmpty
     }
 
-    public init(_ value: ObservedType? = nil) {
+    public init(_ value: ObservedType) {
         self.value = value
         observers = []
     }

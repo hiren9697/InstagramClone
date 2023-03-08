@@ -17,6 +17,12 @@ enum LoadStatus {
     case empty
 }
 
+enum WebServiceOperationStatus {
+    case idle
+    case loading
+    case finishedWithError(message: String)
+}
+
 // MARK: - Loadable VM
 protocol LoadableVM {
     

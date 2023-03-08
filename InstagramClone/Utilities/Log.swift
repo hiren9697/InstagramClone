@@ -14,7 +14,9 @@ enum Log {
         case apiRequest
         case apiResponse
         case warning
+        case success
         case error
+        case deallocate
         
         fileprivate var symbole: String {
             switch self {
@@ -22,7 +24,9 @@ enum Log {
             case .apiRequest: return "↖︎"
             case .apiResponse: return "↘︎"
             case .warning: return "⚠️"
+            case .success: return "✅"
             case .error: return "🛑"
+            case .deallocate: return "🔥"
             }
         }
     }
@@ -129,6 +133,22 @@ extension Log {
                       context: context)
     }
     
+    public static func success(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .success,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
     public static func error(
         _ content: Any...,
         shouldLogContext: Bool = true,
@@ -140,6 +160,22 @@ extension Log {
                               function: function,
                               line: line)
         Log.handleLog(level: .error,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
+    public static func deallocate(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .deallocate,
                       content: content,
                       shouldLogContext: shouldLogContext,
                       context: context)

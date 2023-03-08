@@ -8,6 +8,7 @@
 import UIKit
 
 struct AppColor {
+    
     static let cWhite: UIColor = UIColor.white
     static let cRed: UIColor = UIColor.red
     static let cBlue: UIColor = UIColor(named: "cBlue")!
@@ -19,4 +20,12 @@ struct AppColor {
     static let cRose: UIColor = UIColor(named: "cRose")!
     static let cYellow: UIColor = UIColor(named: "cYellow")!
     static let cCharcole: UIColor = UIColor(named: "charcole")!
+    
+    static let cPrimaryBackground: UIColor = UIColor(named: "cPrimaryBackground")!
+    static let cButtonBackground: UIColor = UIColor(named: "cButtonBackground")!
+    static let cInputBackground: UIColor = UIColor(named: "cInputBackground")!
+    static let cInputBorder: UIColor = UIColor(named: "cInputBorder")!
+    static let cPrimaryTextColor: UIColor = UIColor(named: "cPrimaryTextColor")!
+    static let cSecondaryTextColor: UIColor = UIColor(named: "cSecondaryTextColor")!
+    static let cButtonTitleColor: UIColor = UIColor(named: "cButtonTitleColor")!
 }
