@@ -11,6 +11,15 @@ import FirebaseFirestore
 
 struct AuthService {
     
+    static func signin(email: String, password: String, completion: @escaping ResultCallback) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                completion(.failure(error))
+            }
+            completion(.success(true))
+        }
+    }
+    
     static func register(data: RegisterData, completion: @escaping ResultCallback) {
         
         func registerUser(imagePath: String) {

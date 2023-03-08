@@ -23,6 +23,7 @@ final class LoginVC: ParentVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupBinders()
     }
 }
 
@@ -182,7 +183,7 @@ extension LoginVC {
     @objc func loginTap(_ sender: UIButton) {
         view.endEditing(true)
         vm.login {
-            // Navigate to home
+            FlowManager.shared.navigateToHome()
         }
     }
     

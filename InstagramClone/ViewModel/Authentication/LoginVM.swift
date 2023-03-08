@@ -21,8 +21,20 @@ final class LoginVM {
     
     func login(successCompletion: @escaping VoidCallback) {
         if validateInputs() {
-            // Do login
-            successCompletion()
+            webServiceOperationStatus.value = .loading
+            AuthService.signin(email: emailVM.text,
+                               password: passwordVM.text) {[weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(let _):
+                    Log.success("Successfully logged user in")
+                    strongSelf.webServiceOperationStatus.value = .idle
+                    successCompletion()
+                case .failure(let error):
+                    Log.error("Failed to log user in: \(error.localizedDescription)")
+                    strongSelf.webServiceOperationStatus.value = .finishedWithError(message: error.localizedDescription)
+                }
+            }
         }
     }
     
