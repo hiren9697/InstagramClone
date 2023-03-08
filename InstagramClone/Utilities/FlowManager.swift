@@ -22,7 +22,6 @@ struct FlowManager {
     }
     
     public func setInitialStack() {
-        App.appDelegator.window = UIWindow(frame: Geometry.screenFrame)
         let navVC = UINavigationController()
         navVC.isNavigationBarHidden = true
         App.appDelegator.window?.rootViewController = navVC
@@ -30,7 +29,7 @@ struct FlowManager {
         if Auth.auth().currentUser == nil {
             navVC.setViewControllers([LoginVC()], animated: true)
         } else {
-            navVC.setViewControllers([LoginVC(), TabBarController()], animated: true)
+            navVC.setViewControllers([TabBarController()], animated: true)
         }
     }
 }

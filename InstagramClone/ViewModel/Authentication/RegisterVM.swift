@@ -48,8 +48,14 @@ final class RegisterVM {
                     strongSelf.webServiceOperationStatus.value = .idle
                     successCompletion()
                 case .failure(let error):
+                    let message: String
+                    if error is AuthError {
+                        message = "Something went wrong"
+                    } else {
+                        message = error.localizedDescription
+                    }
                     Log.error("Failed to register user: \(error.localizedDescription)")
-                    strongSelf.webServiceOperationStatus.value = .finishedWithError(message: error.localizedDescription)
+                    strongSelf.webServiceOperationStatus.value = .finishedWithError(message: message)
                 }
             }
         }
