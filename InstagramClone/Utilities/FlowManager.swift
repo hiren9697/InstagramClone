@@ -22,14 +22,29 @@ struct FlowManager {
     }
     
     public func setInitialStack() {
-        let navVC = UINavigationController()
-        navVC.isNavigationBarHidden = true
-        App.appDelegator.window?.rootViewController = navVC
-        App.appDelegator.window?.makeKeyAndVisible()
         if Auth.auth().currentUser == nil {
+            let navVC = UINavigationController()
+            navVC.isNavigationBarHidden = true
+            App.appDelegator.window?.rootViewController = navVC
+            App.appDelegator.window?.makeKeyAndVisible()
             navVC.setViewControllers([LoginVC()], animated: true)
         } else {
-            navVC.setViewControllers([TabBarController()], animated: true)
+            App.appDelegator.window?.rootViewController = TabBarController()
+            App.appDelegator.window?.makeKeyAndVisible()
+        }
+    }
+    
+    public func listenToUserStateChange() {
+        Auth.auth().addStateDidChangeListener { auth, user in
+            let navVC = UINavigationController()
+            navVC.isNavigationBarHidden = true
+            App.appDelegator.window?.rootViewController = navVC
+            App.appDelegator.window?.makeKeyAndVisible()
+            if user == nil {
+                navVC.setViewControllers([LoginVC()], animated: true)
+            } else {
+                navVC.setViewControllers([TabBarController()], animated: true)
+            }
         }
     }
 }

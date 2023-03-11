@@ -45,7 +45,7 @@ struct AuthService {
                 "username": data.userName,
                 "profileImageURL": imagePath
             ]
-            Firestore.firestore().collection(DatabaseCollection.users.rawValue).document(userId).setData(data) { error in
+            DatabaseCollection.users.reference.document(userId).setData(data) { error in
                 if let error = error {
                     completion(.failure(error))
                 } else {

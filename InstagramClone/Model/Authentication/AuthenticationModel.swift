@@ -42,3 +42,15 @@ extension AuthError: LocalizedError {
         }
     }
 }
+
+enum GeneralError: Error {
+    case emptyCurrentUser
+}
+
+extension GeneralError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .emptyCurrentUser: return "Found empty curren user"
+        }
+    }
+}

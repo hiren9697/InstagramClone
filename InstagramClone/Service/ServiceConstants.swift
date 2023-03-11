@@ -5,7 +5,7 @@
 //  Created by Hirenkumar Fadadu on 05/03/23.
 //
 
-import Foundation
+import FirebaseFirestore
 
 enum StorageReferencePath: String {
     case profileImage = "profile_image"
@@ -14,4 +14,8 @@ enum StorageReferencePath: String {
 
 enum DatabaseCollection: String {
     case users = "users"
+    
+    var reference: CollectionReference {
+        return Firestore.firestore().collection(self.rawValue)
+    }
 }

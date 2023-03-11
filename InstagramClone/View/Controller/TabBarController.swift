@@ -43,6 +43,10 @@ extension TabBarController {
         profileVC.tabBarItem.image = UIImage(named: "ic_profile_unselected")!
         profileVC.tabBarItem.selectedImage = UIImage(named: "ic_profile_selected")!
         
-        self.viewControllers = [feedVC, searchVC, addPostVC, notificationListVC, profileVC]
+        self.viewControllers = [feedVC,
+                                UINavigationController(rootViewController: searchVC),
+                                addPostVC,
+                                notificationListVC,
+                                profileVC]
     }
 }
